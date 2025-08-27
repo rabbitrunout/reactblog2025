@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'; // npm install 
 import './App.css';
 import Navbar from './components/Navbar';
 import CreatePost from './components/CreatePost';
-// import Post from './components/Post';
-// import PostList from './components/PostList';
+import Post from './components/Post';
+import PostList from './components/PostList';
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          {/* <Route path={"/"} element={<PostList />} /> */}
+          <Route path={"/"} element={<PostList />} />
           <Route path={"/create-post"} element={<CreatePost />} />
-          {/* <Route path={"/post/:id"} element={<Post />} /> */}
+          <Route path={"/post/:id"} element={<Post />} />
         </Routes>
       </BrowserRouter>
     </div>
