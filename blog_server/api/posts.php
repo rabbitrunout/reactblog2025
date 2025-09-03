@@ -1,4 +1,8 @@
 <?php
+
+session_start();
+
+
 header("Content-Type: application/json");
 
 // Разрешаем запросы с фронтенда React
@@ -9,6 +13,14 @@ header("Access-Control-Allow-Headers: Content-Type");
    // Load configuration files
    require_once('../config/config.php');
    require_once('../config/database.php');
+
+
+   // 🔒 Require authentication
+if (!isset($_SESSION['user'])) {
+    http_response_code(401);
+    echo json_encode(["success" => false, "message" => "Unauthorized"]);
+    exit;
+
 
    // Define configuration options
    $allowedMethods = ['GET'];
